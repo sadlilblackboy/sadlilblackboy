@@ -2,7 +2,7 @@ import { graphql } from "gatsby";
 import Img from "gatsby-image";
 import React from "react";
 import styled from "react-emotion";
-import { Layout } from "../components/layout";
+import { Layout } from "../components/merchlayout";
 
 const Playlist = styled.div`
   width: 100%;
@@ -47,8 +47,11 @@ const ImgContainer = styled.a`
 export default ({ data }) => (
   <Layout>
     <Page>
-      <Header></Header>
+      <Header>Let's all be sad together</Header>
       <Content>
+      <ImgContainer href="https://distrokid.com/hyperfollow/nuq/wilting-roses-fleeting-romance">
+        <Img fluid={data.broken.childImageSharp.fluid} />
+      </ImgContainer>
       </Content>
     </Page>
   </Layout>
@@ -57,27 +60,6 @@ export default ({ data }) => (
 export const query = graphql`
   {
     broken: file(relativePath: { eq: "Broken.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 1024) {
-          ...GatsbyImageSharpFluid_withWebp_tracedSVG
-        }
-      }
-    }
-    alone: file(relativePath: { eq: "alone.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 1024) {
-          ...GatsbyImageSharpFluid_withWebp_tracedSVG
-        }
-      }
-    }
-    vol1: file(relativePath: { eq: "vol1.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 1024) {
-          ...GatsbyImageSharpFluid_withWebp_tracedSVG
-        }
-      }
-    }
-    sad: file(relativePath: { eq: "sad.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 1024) {
           ...GatsbyImageSharpFluid_withWebp_tracedSVG
