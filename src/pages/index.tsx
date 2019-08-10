@@ -52,13 +52,27 @@ const ImgContainer = styled.a`
 export default ({ data }) => (
   <Layout>
     <Page>
-      <Header><a href="merch">Let's all be sad together </a></Header>
-      <Playlist>
-        <iframe
-          allow="autoplay"
-          src="https://www.youtube.com/embed?listType=list&list=UUF-q9z4IF8CUWyj1_8hZDtg&autoplay=1"
-        />
-      </Playlist>
+      <Header>Let's all be sad together</Header>
+      <Header><a href="merch.tsx">MERCH PICTURES HERE</a></Header>
+      <Header>Singles</Header>
+      <Content>
+        <ImgContainer href="https://distrokid.com/hyperfollow/nuq/wilting-roses-fleeting-romance">
+          <Img fluid={data.summer.childImageSharp.fluid} />
+        </ImgContainer>
+        <ImgContainer href="https://distrokid.com/hyperfollow/nuq/late-nights">
+          <Img fluid={data.friend_zone.childImageSharp.fluid} />
+        </ImgContainer>
+        <ImgContainer href="https://distrokid.com/hyperfollow/nuq/sadlilblackboy-vol-2">
+          <Img fluid={data.failure.childImageSharp.fluid} />
+        </ImgContainer>
+        <ImgContainer href="https://distrokid.com/hyperfollow/nuq/without-good-reason">
+          <Img fluid={data.lazyboy.childImageSharp.fluid} />
+        </ImgContainer>
+        <ImgContainer href="https://distrokid.com/hyperfollow/nuq/without-good-reason">
+          <Img fluid={data.better_off.childImageSharp.fluid} />
+        </ImgContainer>
+      </Content>
+      <Header>Beat Tapes</Header>
       <Content>
         <ImgContainer href="https://distrokid.com/hyperfollow/nuq/wilting-roses-fleeting-romance">
           <Img fluid={data.WRFR.childImageSharp.fluid} />
@@ -94,6 +108,41 @@ export default ({ data }) => (
 
 export const query = graphql`
   {
+    lazyboy: file(relativePath: { eq: "lazy_boy.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 1024) {
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
+        }
+      }
+    }
+    summer: file(relativePath: { eq: "summer.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 1024) {
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
+        }
+      }
+    }
+    friend_zone: file(relativePath: { eq: "friend_zone.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 1024) {
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
+        }
+      }
+    }
+    better_off: file(relativePath: { eq: "Better_off.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 1024) {
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
+        }
+      }
+    }
+    failure: file(relativePath: { eq: "failure.JPG" }) {
+      childImageSharp {
+        fluid(maxWidth: 1024) {
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
+        }
+      }
+    }
     WRFR: file(relativePath: { eq: "WRFR.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 1024) {
