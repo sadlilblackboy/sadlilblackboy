@@ -225,7 +225,6 @@ export const Layout = ({ children }) => {
           <a href="/playlists">Playlists</a>
           <a href="https://teespring.com/stores/sadlilblackboy">Merch</a>
           <a href="/submit">Submissions</a>
-          <a href="/contact">Contact</a>
         </TopNav>
       </Nav>
       {children}

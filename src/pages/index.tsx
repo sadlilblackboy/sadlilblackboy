@@ -3,6 +3,7 @@ import Img from "gatsby-image";
 import React from "react";
 import styled from "@emotion/styled";
 import { Layout } from "../components/layout";
+import BackgroundSlider from 'gatsby-image-background-slider'
 
 const appleSvg = require("../assets/AppleSquare.png") as string;
 const spotifySvg = require("../assets/spotify.svg") as string;
@@ -29,6 +30,101 @@ const Playlist = styled.div`
   }
 `;
 
+const SlideContainer = styled.div`
+  display: block;
+  width: 100%;
+  position: relative;
+  padding-bottom: 75%;
+  background-size: cover;
+  background-image: url("https://i.pinimg.com/originals/42/19/2e/42192e832dd63466dbe866688617ebef.gif");
+  font-family: "Helvetica Neue Condensed";
+  font-weight: 400;
+
+  @media (max-width: 800px) {
+  }
+
+  mySlides {
+    display: none;
+  }
+
+  img{
+    display: block;
+    width: 100%;
+    position: relative;
+    padding-bottom: 75%;
+  }
+
+  next, prev {
+    cursor: pointer;
+    position: absolute;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: black;
+    font-weight: bold;
+    font-size: 30px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+
+  }
+  next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+
+  prev:hover, next:hover , listen: hover{
+    background-color: rgba(0,0,0,0.5);
+  }
+
+  listen{
+    vertical-align: middle;
+    background-color: transparent;
+    background-repeat:no-repeat;
+    border: groove;
+    border-color: black;
+    cursor:pointer;
+    overflow: hidden;
+    color: black;
+    padding: 6px 32px;
+    position: absolute;
+    bottom: 150px;
+    height: 48px;
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  down {
+    position: absolute;
+    bottom: 0px;
+    height: 48px;
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    text-transform: uppercase;
+  }
+
+  fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+  }
+
+  @-webkit-keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+  }
+
+  @keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+  }
+`;
+
 const Content = styled.section`
   display: flex;
   @media (max-width: 800px) {
@@ -38,16 +134,17 @@ const Content = styled.section`
 
 const Page = styled.div`
   display: flex;
-  max-width: 1000px;
   margin: 0 auto;
   flex-direction: column;
+  @media (max-width: 1000px) {
+  }
 `;
 
 const Header = styled.h1`
   font-family: "edosz";
   font-weight: 400;
   text-align: center;
-  color: white;
+  color: black;
   margin-top: 4px;
   margin-bottom: 8px;
 `;
@@ -158,13 +255,15 @@ const MerchContainer = styled.div`
 export default ({ data }) => (
   <Layout>
     <Page>
-      <Header>Let's all be sad together</Header>
-      <Playlist>
-        <iframe
-          allow="autoplay"
-          src="https://www.youtube.com/embed/videoseries?list=PL8vjFV9ndmZuBfln4WFo8ZH_lhdCOP9us"
-        />
-      </Playlist>
+        <SlideContainer>
+          <Header>Let's all be sad together</Header>
+            <listen>
+              Listen to "counting the days" everywhere now!
+            </listen>
+            <down> ↓ or scroll down for more ↓ </down>
+            <prev onclick="plusSlides(1)">&#10094;</prev>
+            <next onclick="plusSlides(-1)">&#10095;</next>
+        </SlideContainer>
       <StreamHeader> Stream Everything, Everywhere </StreamHeader>
       <Body>
         <StreamFrame>
